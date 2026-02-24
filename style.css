@@ -9,7 +9,7 @@
             --rose: #f43f5e;
             --border: #e2e8f0;
         }
-
+        /* common css */
         body { 
             background-color: var(--bg-color); 
             font-family: 'Segoe UI', sans-serif; 

@@ -22,7 +22,7 @@ function setStatus(btn, status) {
         }
         updateAllStats();
     }
-
+    
     function removeCard(btn) {
         btn.closest('.job-card').remove();
         updateAllStats();
