@@ -1,0 +1,143 @@
+:root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --primary-blue: #1e3a8a;
+            --badge-bg: #eff6ff;
+            --slate-700: #334155;
+            --slate-500: #64748b;
+            --emerald: #10b981;
+            --rose: #f43f5e;
+            --border: #e2e8f0;
+        }
+
+        body { 
+            background-color: var(--bg-color); 
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; 
+            color: var(--slate-700); 
+        }
+
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+
+        header { margin-bottom: 40px; }
+        .header-title { font-size: 1.8rem; margin-bottom: 25px; }
+
+        .stats-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 20px; 
+        }
+
+        .stat-card { 
+            background: var(--card-bg); 
+            padding: 20px; 
+            border-radius: 15px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+            border-bottom: 4px solid var(--border); 
+        }
+
+        .stat-card.applied { border-color: #3b82f6; }
+        .stat-card.interviews { border-color: var(--emerald); }
+        .stat-card.rejected { border-color: var(--rose); }
+        .stat-card h2 { margin: 5px 0 0 0; font-size: 2.5rem; }
+
+        .controls-wrapper { margin-bottom: 30px; }
+        .controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .section-title { margin: 0; font-size: 1.2rem; }
+        .badge-count { background: #e2e8f0; padding: 2px 10px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; }
+
+        .tab-group { background: #e2e8f0; padding: 5px; border-radius: 12px; display: flex; width: fit-content; }
+        .tab-btn { border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; background: transparent; font-weight: 600; color: var(--slate-500); }
+        .tab-btn.active { background: white; color: #2563eb; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+        #job-container { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 25px; 
+        }
+
+        .job-card { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 16px; 
+            border: 1px solid var(--border); 
+            position: relative; 
+            transition: 0.3s; 
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .not-applied { background: #eff6ff; color: #1e40af; }
+        .interview-badge { background: #ecfdf5; color: #065f46; }
+        .rejected-badge { background: #fef2f2; color: #991b1b; }
+
+        .delete-btn { position: absolute; top: 20px; right: 20px; background: #f1f5f9; border: none; width: 32px; height: 32px; border-radius: 50%; color: #94a3b8; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .delete-btn:hover { background: #fee2e2; color: var(--rose); }
+
+        .job-card h3 { margin: 0; color: #0f172a; font-size: 1.25rem; }
+        .company { color: #475569; font-weight: 500; margin-bottom: 15px; font-size: 0.95rem; }
+        .meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.85rem; color: #64748b; margin-bottom: 20px; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; }
+        .desc { font-size: 0.9rem; color: #475569; line-height: 1.5; margin-bottom: 20px; }
+
+        .actions { display: flex; gap: 10px; justify-content: flex-start; }
+        .act-btn { 
+            padding: 8px 18px; 
+            width: 120px; 
+            border: 1.5px solid #e2e8f0; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            background: white; 
+            transition: 0.2s; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+        }
+
+        .btn-interview { color: var(--emerald); border-color: #a7f3d0; }
+        .btn-interview:hover, .btn-interview.active { background: #ecfdf5; border-color: var(--emerald); }
+
+        .btn-rejected { color: var(--rose); border-color: #fecaca; }
+        .btn-rejected:hover, .btn-rejected.active { background: #fef2f2; border-color: var(--rose); }
+
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 16px;
+            border: 2px dashed var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .empty-icon {
+            width: 80px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .empty-state h3 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: var(--slate-700);
+        }
+
+        .empty-state p {
+            color: var(--slate-500);
+            margin-top: 8px;
+        }

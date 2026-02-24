@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1 class="header-title">Job Application Tracker</h1>
+        <div class="stats-grid">
+            <div class="stat-card applied"><p>Total Applied</p><h2 id="total-count">0</h2></div>
+            <div class="stat-card interviews"><p>Interviews</p><h2 id="interview-count">0</h2></div>
+            <div class="stat-card rejected"><p>Rejected</p><h2 id="rejected-count">0</h2></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="controls-wrapper">
+            <div class="controls">
+                <div class="title-section">
+                    <h2 class="section-title">Available Jobs</h2>
+                </div>
+                <div>
+                   <p><span id="tab-job-count" class="badge-count">0</span> Jobs</p> 
+                </div>
+            </div>
+            <div class="tab-group">
+                <button onclick="filterTab('All')" class="tab-btn active">All</button>
+                <button onclick="filterTab('Interview')" class="tab-btn">Interview</button>
+                <button onclick="filterTab('Rejected')" class="tab-btn">Rejected</button>
+            </div>
+        </div>
+        
+        <div id="job-container">
+        <div class="job-card" data-status="All">
+          <button class="delete-btn" onclick="removeCard(this)">
+            <i class="fas fa-trash-can"></i>
+          </button>
+          <h3>Backend Developer</h3>
+          <div class="company">CodeCraft</div>
+          <div class="meta">
+            <span><i class="fas fa-location-dot"></i> New York</span>
+            <span><i class="fas fa-clock"></i> Remote</span>
+            <span><i class="fas fa-dollar-sign"></i> $110k</span>
+          </div>
+          <div class="status-badge not-applied">Not Applied</div>
+          <p class="desc">Develop scalable REST APIs using Node.js and MongoDB.</p>
+          <div class="actions">
+            <button onclick="setStatus(this, 'Interview')" class="act-btn btn-interview">Interview</button>
+            <button onclick="setStatus(this, 'Rejected')" class="act-btn btn-rejected">Rejected</button>
+          </div>
+        </div>
+
+        <div class="job-card" data-status="All">
+          <button class="delete-btn" onclick="removeCard(this)">
+            <i class="fas fa-trash-can"></i>
+          </button>
+          <h3>UI/UX Designer</h3>
+          <div class="company">DesignHive</div>
+          <div class="meta">
+            <span><i class="fas fa-location-dot"></i> London</span>
+            <span><i class="fas fa-clock"></i> Full-time</span>
+            <span><i class="fas fa-dollar-sign"></i> $95k</span>
+          </div>
+          <div class="status-badge not-applied">Not Applied</div>
+          <p class="desc">Create user-centered designs and interactive prototypes in Figma.</p>
+          <div class="actions">
+            <button onclick="setStatus(this, 'Interview')" class="act-btn btn-interview">Interview</button>
+            <button onclick="setStatus(this, 'Rejected')" class="act-btn btn-rejected">Rejected</button>
+          </div>
+        </div>
+
+        <div class="job-card" data-status="All">
+          <button class="delete-btn" onclick="removeCard(this)">
+            <i class="fas fa-trash-can"></i>
+          </button>
+          <h3>React Developer</h3>
+          <div class="company">TechNova</div>
+          <div class="meta">
+            <span><i class="fas fa-location-dot"></i> Toronto</span>
+            <span><i class="fas fa-clock"></i> Contract</span>
+            <span><i class="fas fa-dollar-sign"></i> $105k</span>
+          </div>
+          <div class="status-badge not-applied">Not Applied</div>
+          <p class="desc">Build modern web applications using React and Tailwind CSS.</p>
+          <div class="actions">
+            <button onclick="setStatus(this, 'Interview')" class="act-btn btn-interview">Interview</button>
+            <button onclick="setStatus(this, 'Rejected')" class="act-btn btn-rejected">Rejected</button>
+          </div>
+        </div>
+
+        <div class="job-card" data-status="All">
+          <button class="delete-btn" onclick="removeCard(this)">
+            <i class="fas fa-trash-can"></i>
+          </button>
+          <h3>DevOps Engineer</h3>
+          <div class="company">CloudCore</div>
+          <div class="meta">
+            <span><i class="fas fa-location-dot"></i> Singapore</span>
+            <span><i class="fas fa-clock"></i> Full-time</span>
+            <span><i class="fas fa-dollar-sign"></i> $125k</span>
+          </div>
+          <div class="status-badge not-applied">Not Applied</div>
+          <p class="desc">Manage CI/CD pipelines and cloud infrastructure on AWS.</p>
+          <div class="actions">
+            <button onclick="setStatus(this, 'Interview')" class="act-btn btn-interview">Interview</button>
+            <button onclick="setStatus(this, 'Rejected')" class="act-btn btn-rejected">Rejected</button>
+          </div>
+        </div>
+
+        <div class="job-card" data-status="All">
+          <button class="delete-btn" onclick="removeCard(this)">
+            <i class="fas fa-trash-can"></i>
+          </button>
+          <h3>Data Analyst</h3>
+          <div class="company">Insight Labs</div>
+          <div class="meta">
+            <span><i class="fas fa-location-dot"></i> Sydney</span>
+            <span><i class="fas fa-clock"></i> Part-time</span>
+            <span><i class="fas fa-dollar-sign"></i> $85k</span>
+          </div>
+          <div class="status-badge not-applied">Not Applied</div>
+          <p class="desc">Analyze business data and generate actionable insights.</p>
+          <div class="actions">
+            <button onclick="setStatus(this, 'Interview')" class="act-btn btn-interview">Interview</button>
+            <button onclick="setStatus(this, 'Rejected')" class="act-btn btn-rejected">Rejected</button>
+          </div>
+        </div>
+
+        <div class="job-card" data-status="All">
+          <button class="delete-btn" onclick="removeCard(this)">
+            <i class="fas fa-trash-can"></i>
+          </button>
+          <h3>QA Engineer</h3>
+          <div class="company">SoftTest Pro</div>
+          <div class="meta">
+            <span><i class="fas fa-location-dot"></i> Dubai</span>
+            <span><i class="fas fa-clock"></i> Full-time</span>
+            <span><i class="fas fa-dollar-sign"></i> $90k</span>
+          </div>
+          <div class="status-badge not-applied">Not Applied</div>
+          <p class="desc">Perform manual and automated testing for web applications.</p>
+          <div class="actions">
+            <button onclick="setStatus(this, 'Interview')" class="act-btn btn-interview">Interview</button>
+            <button onclick="setStatus(this, 'Rejected')" class="act-btn btn-rejected">Rejected</button>
+          </div>
+        </div>
+
+        <div class="job-card" data-status="All">
+          <button class="delete-btn" onclick="removeCard(this)">
+            <i class="fas fa-trash-can"></i>
+          </button>
+          <h3>Mobile App Developer</h3>
+          <div class="company">Appify</div>
+          <div class="meta">
+            <span><i class="fas fa-location-dot"></i> Bangalore</span>
+            <span><i class="fas fa-clock"></i> Remote</span>
+            <span><i class="fas fa-dollar-sign"></i> $100k</span>
+          </div>
+          <div class="status-badge not-applied">Not Applied</div>
+          <p class="desc">Build cross-platform apps using Flutter and Firebase.</p>
+          <div class="actions">
+            <button onclick="setStatus(this, 'Interview')" class="act-btn btn-interview">Interview</button>
+            <button onclick="setStatus(this, 'Rejected')" class="act-btn btn-rejected">Rejected</button>
+          </div>
+        </div>
+
+        <div class="job-card" data-status="All">
+          <button class="delete-btn" onclick="removeCard(this)"><i class="fas fa-trash-can"></i></button>
+          <h3>Frontend Engineer</h3>
+          <div class="company">PixelPerfect</div>
+          <div class="meta">
+            <span><i class="fas fa-location-dot"></i> San Francisco</span>
+            <span><i class="fas fa-clock"></i> Full-time</span>
+            <span><i class="fas fa-dollar-sign"></i> $120k</span>
+          </div>
+          <div class="status-badge not-applied">Not Applied</div>
+          <p class="desc">Collaborate with designers to implement high-fidelity interfaces using modern CSS.</p>
+          <div class="actions">
+            <button onclick="setStatus(this, 'Interview')" class="act-btn btn-interview">Interview</button>
+            <button onclick="setStatus(this, 'Rejected')" class="act-btn btn-rejected">Rejected</button>
+          </div>
+        </div>
+
+        <div id="empty-state" class="empty-state" style="display: none;">
+                <img src="jobs.png" alt="No jobs" class="empty-icon" onerror="this.src='https://cdn-icons-png.flaticon.com/512/7486/7486744.png'">
+                <h3>No jobs available</h3>
+                <p>Check back soon for new job opportunities</p>
+            </div>
+            
+      </div>
+    </main>
+</div>
+
+<script src="java.js"></script>
+</body>
+</html>
