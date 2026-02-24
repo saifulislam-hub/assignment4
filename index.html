@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Application Tracker</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application Tracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
+  <div class="container">
     <header>
-        <h1 class="header-title">Job Application Tracker</h1>
-        <div class="stats-grid">
-            <div class="stat-card applied"><p>Total Applied</p><h2 id="total-count">0</h2></div>
-            <div class="stat-card interviews"><p>Interviews</p><h2 id="interview-count">0</h2></div>
-            <div class="stat-card rejected"><p>Rejected</p><h2 id="rejected-count">0</h2></div>
+      <h1 class="header-title">Job Application Tracker</h1>
+      <div class="stats-grid">
+        <div class="stat-card applied">
+          <p>Total Applied</p>
+          <h2 id="total-count">0</h2>
         </div>
+        <div class="stat-card interviews">
+          <p>Interviews</p>
+          <h2 id="interview-count">0</h2>
+        </div>
+        <div class="stat-card rejected">
+          <p>Rejected</p>
+          <h2 id="rejected-count">0</h2>
+        </div>
+      </div>
     </header>
 
     <main>
-        <div class="controls-wrapper">
-            <div class="controls">
-                <div class="title-section">
-                    <h2 class="section-title">Available Jobs</h2>
-                </div>
-                <div>
-                   <p><span id="tab-job-count" class="badge-count">0</span> Jobs</p> 
-                </div>
-            </div>
-            <div class="tab-group">
-                <button onclick="filterTab('All')" class="tab-btn active">All</button>
-                <button onclick="filterTab('Interview')" class="tab-btn">Interview</button>
-                <button onclick="filterTab('Rejected')" class="tab-btn">Rejected</button>
-            </div>
+      <div class="controls-wrapper">
+        <div class="controls">
+          <div class="title-section">
+            <h2 class="section-title">Available Jobs</h2>
+          </div>
+          <div>
+            <p><span id="tab-job-count" class="badge-count">0</span> Jobs</p>
+          </div>
         </div>
-        
-        <div id="job-container">
+        <div class="tab-group">
+          <button onclick="filterTab('All')" class="tab-btn active">All</button>
+          <button onclick="filterTab('Interview')" class="tab-btn">Interview</button>
+          <button onclick="filterTab('Rejected')" class="tab-btn">Rejected</button>
+        </div>
+      </div>
+      <!-- job container html -->
+      <div id="job-container">
         <div class="job-card" data-status="All">
           <button class="delete-btn" onclick="removeCard(this)">
             <i class="fas fa-trash-can"></i>
@@ -188,15 +199,17 @@
         </div>
 
         <div id="empty-state" class="empty-state" style="display: none;">
-                <img src="jobs.png" alt="No jobs" class="empty-icon" onerror="this.src='https://cdn-icons-png.flaticon.com/512/7486/7486744.png'">
-                <h3>No jobs available</h3>
-                <p>Check back soon for new job opportunities</p>
-            </div>
-            
+          <img src="jobs.png" alt="No jobs" class="empty-icon"
+            onerror="this.src='https://cdn-icons-png.flaticon.com/512/7486/7486744.png'">
+          <h3>No jobs available</h3>
+          <p>Check back soon for new job opportunities</p>
+        </div>
+
       </div>
     </main>
-</div>
+  </div>
 
-<script src="java.js"></script>
+  <script src="java.js"></script>
 </body>
+
 </html>
