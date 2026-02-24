@@ -22,7 +22,7 @@ function setStatus(btn, status) {
         }
         updateAllStats();
     }
-    
+
     function removeCard(btn) {
         btn.closest('.job-card').remove();
         updateAllStats();
@@ -56,7 +56,7 @@ function setStatus(btn, status) {
 
         document.getElementById('tab-job-count').innerText = visibleCount;
     }
-
+    // updateAllStats function
     function updateAllStats() {
         const allCards = document.querySelectorAll('.job-card');
         const interviewCards = document.querySelectorAll('.job-card[data-status="Interview"]');
